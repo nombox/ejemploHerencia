@@ -8,16 +8,18 @@ package ejemploNominas;
  *
  * @author sebastian.eduardo.va
  */
-public class Analista extends Informatico {
-    //constructor   
-    public Analista(String dni, String nombre, double salarioBase){
+public class Programador extends Informatico {
+    
+    //Constructor
+    public Programador(String dni, String nombre, double salarioBase){
     super(dni, nombre, salarioBase);
     }
     
     @Override
     //metodo polimorfismo
     public double calculoSalarioFinal(){
-    double complemento = this.getSalarioBase() * 0.3;
+    double complemento = this.getSalarioBase() * 0.15;
     return this.getSalarioBase() + complemento;
     }
+    
 }

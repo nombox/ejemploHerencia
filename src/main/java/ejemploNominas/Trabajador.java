@@ -8,7 +8,7 @@ package ejemploNominas;
  *
  * @author sebastian.eduardo.va
  */
-public class Trabajador {
+public abstract class Trabajador {
     private String dni;
     private String nombre;
     private double salarioBase;
@@ -27,17 +27,18 @@ public class Trabajador {
     }
 
     /**
+     * @return the salarioBase
+     */
+    public double getSalarioBase() {
+        return salarioBase;
+    }
+
+
+    /**
      * @return the dni
      */
     public String getDni() {
         return dni;
-    }
-
-    /**
-     * @param dni the dni to set
-     */
-    public void setDni(String dni) {
-        this.dni = dni;
     }
 
     /**
@@ -48,42 +49,36 @@ public class Trabajador {
     }
 
     /**
-     * @param nombre the nombre to set
-     */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    /**
-     * @return the salarioBase
-     */
-    public double getSalarioBase() {
-        return salarioBase;
-    }
-
-    /**
-     * @param salarioBase the salarioBase to set
-     */
-    public void setSalarioBase(double salarioBase) {
-        this.salarioBase = salarioBase;
-    }
-
-    /**
      * @return the salarioFinal
      */
     public double getSalarioFinal() {
         return salarioFinal;
     }
-
-    /**
-     * @param salarioFinal the salarioFinal to set
-     */
-    public void setSalarioFinal(double salarioFinal) {
-        this.salarioFinal = salarioFinal;
+    
+        
+    //Metodo
+    public abstract double calculoSalarioFinal();
+    
+    
+    @Override
+    public boolean equals(Object o){
+        
+        if(this == o){
+        return true;
+        }
+        
+        if(o == null || getClass() != o.getClass()){
+        return false;
+        }
+        
+        Trabajador e = (Trabajador) o;
+        return(this.getDni().equals(e.getDni()));
+        
     }
     
-    //Metodo
-    public double calculoSalarioFinal(){
-        return this.salarioBase;
+    @Override
+    public String toString(){
+        return this.getClass().getSimpleName()+": {dni="+this.dni+", nombre="+this.nombre+", salarioB="+this.salarioBase+", salarioF="+this.salarioFinal+"}\n";
+    
     }
 }

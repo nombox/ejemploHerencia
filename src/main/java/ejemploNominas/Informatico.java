@@ -8,13 +8,12 @@ package ejemploNominas;
  *
  * @author sebastian.eduardo.va
  */
-public class Informatico extends Trabajador {
-    private String titulacion;
+public abstract class Informatico extends Trabajador {
+    protected String titulacion;
     
     //constructores
-    public Informatico(String dni, String nombre, double salarioBase, String titulacion){
+    public Informatico(String dni, String nombre, double salarioBase){
     super(dni, nombre, salarioBase);
-    this.titulacion = titulacion;
     }
 
     /**
